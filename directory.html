@@ -1,50 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>OMIS 485</title>
+<title>Assignments</title>
+<link rel="shortcut icon" href="Assets/Pics/favicon.ico" type="image/x-icon">
+<link href = "stylesheet.css" rel = "stylesheet">
+<meta-charset="utf-8"></meta-charset>
 </head>
 
-<style>
-    /* .cu stands for: center and underline; Used for top headers only*/
-    .cu
-    {
-        font-family: 'Courier New', Courier, monospace;
-        text-decoration: underline;
-        text-align: center;
-    }
+<body>
+    <header>
+        <a href = "directory.html"><img src = "Assets/Pics/KL.png"></a>
+        <nav>
+            <ul>
+                <li><a href="directory.html">Home</a></li>
+                <li><a href="https://karl-lagunilla.github.io/OMIS475/">My Other Website!</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    /* .u stands for: underline; Used to underline anything*/
-    .u
-    {
-        text-decoration: underline;
-        font-family: 'Courier New', Courier, monospace;
-    }
+    <main>
+    <u><h1 style = "font-size: 40px;">Assignment directory: </h1></u>
 
-    /* .p stands for: paragraph; Used to change font*/
-    .p
-    {
-        font-family: 'Courier New', Courier, monospace;
-    }
-</style>
+    <!-- Directory list only: -->   
+    <p><a href="PDF/1-1.pdf">Assignment 1-1 PDF</a></p> 
+    <p><a href="PDF/1-2.pdf">Assignment 1-2 PDF</a></p>
+    <p><a href="JavaScript/rectangle.html">Assignment 2 JavaScript</a></p>
+    <p><a href="PDF/Rectangle_pdf.pdf">Assignment 2 PDF</a></p>
+    <p><a href="JavaScript/scores_array.html">Assignment 3 JavaScript</a></p>
+    <p><a href="PDF/3-2.pdf">Assignment 3 PDF</a></p>
+    <p><a href="PDF/MPG.pdf">Assignment 4-1 PDF</a></p>
+    <p><a href="JavaScript/mpg/index.html">Assignment 4-1 JavaScript</a></p>
+    <p><a href="PDF/Future Value.pdf">Assignment 4-2 PDF</a></p>
+    <p><a href="JavaScript/future_value/index.html">Assignment 4-2 JavaScript</a></p>
+    </ul>
+ 
+    <hr>
+    
+    <div id="clockbox"></div>
 
-<body style = "background-color: beige">
-
-<h1 class = "cu"; style = "color:crimson">OMIS 485: GitHub Pages</h1>
-<h2 class = "cu"; style = "font-style: italic; color:crimson">by Karl Lagunilla</h2>
-<hr>
-<h3 class = "u"; style = "color: crimson">Assignment directory: </h3>
-
-<!-- Directory list only: -->
-<p class = "p"><a href="PDF/1-1.pdf">Assignment 1-1 PDF</a></p> 
-<p class = "p"><a href="PDF/1-2.pdf">Assignment 1-2 PDF</a></p>
-<p class = "p"><a href="JavaScript/rectangle.html">Assignment 2 JavaScript</a></p>
-<p class = "p"><a href="PDF/Rectangle_pdf.pdf">Assignment 2 PDF</a></p>
-<p class = "p"><a href="JavaScript/scores_array.html">Assignment 3 JavaScript</a></p>
-<p class = "p"><a href="PDF/3-2.pdf">Assignment 3 PDF</a></p>
-<p class = "p"><a href="PDF/MPG.pdf">Assignment 4-1 PDF</a></p>
-<p class = "p"><a href="JavaScript/mpg/index.html">Assignment 4-1 JavaScript</a></p>
-<p class = "p"><a href="PDF/Future Value.pdf">Assignment 4-2 PDF</a></p>
-<p class = "p"><a href="JavaScript/future_value/index.html">Assignment 4-2 JavaScript</a></p>
+    <script type="text/javascript">
+        var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
+        
+        function GetClock(){
+        var d=new Date();
+        var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
+        var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+        
+        if(nhour==0){ap=" AM";nhour=12;}
+        else if(nhour<12){ap=" AM";}
+        else if(nhour==12){ap=" PM";}
+        else if(nhour>12){ap=" PM";nhour-=12;}
+        
+        if(nmin<=9) nmin="0"+nmin;
+        if(nsec<=9) nsec="0"+nsec;
+        
+        var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+        document.getElementById('clockbox').innerHTML=clocktext;
+        }
+        
+        GetClock();
+        setInterval(GetClock,1000);
+        </script>
+    </main>
 
 </body>
 </html>

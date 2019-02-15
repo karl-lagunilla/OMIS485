@@ -16,17 +16,17 @@ var processEntries = function() {
     var years = parseInt( $("years").value );
     var errorMessage = "";
 
-    if ((investment < 0) || (investment > 100000)) {
+    if (isNaN(investment) || (investment < 0) || (investment > 100000)) {
       errorMessage = "Investment is a number that's greater than zero and less than or equal to 100,000";
       $("investment").focus();
     }
 
-    else if ((rate < 0) || (rate > 15)) {
+    else if (isNaN(rate) || (rate < 0) || (rate > 15)) {
       errorMessage = "Interest rate is a number that's greater than zero and less than or equal to 15";
       $("rate").focus();
     }
 
-    else if ((years < 0) || (years > 50)) {
+    else if (isNaN(years) || (years < 0) || (years > 50)) {
       errorMessage = "Years is a number that's greater than zero and less than or equal to 50";
       $("years").focus();
     }
